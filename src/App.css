@@ -45,57 +45,6 @@ body {
   box-sizing: border-box;
 }
 
-.card {
-  background: #1e293b;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
-}
-
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
-}
-
-.card h2 {
-  margin-top: 0;
-  color: #60a5fa;
-}
-
-.card p {
-  margin: 0.3rem 0;
-}
-
-.city-grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-  padding-top: 2rem;
-  box-sizing: border-box;
-}
-
-.city-tile {
-  background: #334155;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.city-tile h3 {
-  margin: 0.5rem 0;
-  color: #facc15;
-}
-
-.city-tile p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #94a3b8;
-}
-
 .footer {
   text-align: center;
   padding: 1rem;

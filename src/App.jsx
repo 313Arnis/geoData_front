@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Country from './components/country';
 import './App.css';
 
 function App() {
@@ -6,16 +7,19 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/countries')
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchCountries = async () => {
+      try {
+        const res = await fetch('http://127.0.0.1:8000/api/countries');
+        const data = await res.json();
         setCountries(data);
+      } catch (err) {
+        console.error('Kļūda ielādējot valstis:', err);
+      } finally {
         setLoading(false);
-      })
-      .catch((error) => {
-        console.error('API kļūda:', error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchCountries();
   }, []);
 
   return (
@@ -30,18 +34,7 @@ function App() {
         ) : (
           <div className="card-list">
             {countries.map((country) => (
-              <div className="card" key={country.id}>
-                <h2>{country.name}</h2>
-                <p>📏 {country.area_km2} km²</p>
-                <p>👥 {country.population.toLocaleString()} iedzīvotāji</p>
-                {country.cities?.length > 0 && (
-                  <ul className="cities">
-                    {country.cities.map((city) => (
-                      <li key={city.id}>🏙️ {city.name}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+              <Country key={country.id} {...country} />
             ))}
           </div>
         )}
