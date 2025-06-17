@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Country from './components/country';
+import Country from './components/Country';
 import './App.css';
 
 function App() {
